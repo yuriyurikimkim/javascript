@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습연습</title>
+</head>
+<body>
+    <script>
+        function Student (name, kor, eng, math, art){
+            this.name = name,
+            this.kor = kor,
+            this.eng = eng,
+            this.math = math,
+            this.art = art
+        };
+
+        Student.prototype.getSum = function(){
+            return this.kor + this.eng + this.math + this.art
+        };
+        Student.prototype.getAvg = function(){
+            return (this.kor + this.eng + this.math + this.art)/4
+        };
+        Student.prototype.toResult = function(){
+            return this.name + '\t' + this.getSum() + '\t\t' + this.getAvg()
+        };
+
+        let students = [];
+        students.push(new Student('홍길동',96,98,92,98));
+        students.push(new Student('성춘향',88,74,78,92));
+        students.push(new Student('이몽룡',69,89,92,78));
+        students.push(new Student('임영웅',97,95,89,98));
+        students.push(new Student('성유리',66,80,92,94));
+
+        //반복문 for in 쓰기
+        console.log(`이름 \t 총점 \t 평균`);
+        console.log('======================');
+
+        for(let i in students){
+            console.log(students[i].toResult());
+        }
+        console.log('======================');
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크리스트</title>
+    <link href="css/체크리스트.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <h2>여행준비물 점검목록</h2>
+        <form>
+            <input type="text" id="item" autofocus>
+            <button type="button" id="add" class="addBtn">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        //addEventListener(이벤트가 발생하는지 계속 보고있는거라고 생각) = onclick(클릭했을때) 비슷
+        let itemList =[];
+        let addBtn = document.querySelector('#add');
+        addBtn.addEventListener("click",addList);
+
+        //값 넣어주기 #item이 입력하는 값 (item != '' 비어있지 않다면 = 값이 들어왔다면)
+        // showList는 입력한 목록 보여주는 함수
+        function addList() {
+            let item = document.querySelector('#item').value;
+            if (item != ''){
+                itemList.push(item);
+                document.querySelector('#item').value = '';
+                document.querySelector('#item').focus();
+                showList();
+            }
+        }
+
+        function showList(){
+            let list = "<ul>";
+                for (let i=0; i<itemList.length; i++) {
+                    list += "<li>" + itemList[i] + "<span class='close' id=" + i + ">X</span></li>";
+                }
+            list += "</ul>";
+            document.querySelector('#itemList').innerHTML = list;
+
+            //지우는 애는 close로 가져옴(getElements = querySelectorAll로 해야됨)
+            let remove = document.getElementsByClassName('close');
+            for (let i=0; i<remove.length; i++){
+                remove[i].addEventListener("click", removeList);
+            }
+        }
+        //여기서 this. 는 이벤트 발생된 애 = (지금 클릭된 애) / (페이지에서 클릭된 x의 id를 가져와서 지운다)
+        function removeList(){
+            let id = this.getAttribute("id");
+            itemList.splice(id,1); //id 값중에 1개 삭제하라는 뜻
+            showList();
+        }
+        //순서
+        //1. 입력을 하면 배열에 저장해야 함.(addList) 자료 배열 추가
+        //2. 입력된 값을 비어있지 않으면 itemList에 push / 배열을 화면에 뿌리기 (showList)
+        //3. 삭제 됐을때 삭제 시키고 지운걸 다시 정렬해서 보여주기 (showList)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기초</title>
+</head>
+<body>
+    <script>
+        // console.log('hi javascript!');
+        // alert('hi js!!');
+        // document.write('hi js!!!');
+            let a=15;
+            let b=100;
+            let hap= a+b;
+            console.log(a + ' + ' + b + ' = '+hap);
+        //배열
+            let seasons = ['봄','여름','가을','겨울'];
+            console.log(seasons);
+            console.log(seasons.length);
+        //객체
+            let person = {
+                name : 'kim',
+                age : 25,
+                eat : function(food){
+                    console.log(food + '를(을) 먹어요 ')
+                }
+            }
+            console.log(person);
+            console.log(person.name);
+            console.log(person.eat('떡볶이'));
+        //변수와 상수
+            console.log(p1);
+            // console.log(l2); 선언 전에 사용할 수 없음.
+            var p1;
+            let l2;
+
+            var p1;
+            p1 = 100;
+            console.log('재선언' + p1);
+            // let l2; 재선언을 할 수 없음.
+            l2 = 300;
+            console.log(l2);
+
+            //상수는 반드시 값을 지정해야 함. 
+            const NUM = 500;
+            // NUM = 600; 상수로 선언된 경우 값을 변경할 수 없음.
+            console.log(NUM);
+
+            console.log(typeof(seasons));
+            console.log(typeof(person));
+            
+            //자료형에 상관없이 실제 데이터만 비교하는것. ===은 자료형에 비교하는것.
+            console.log(1=='1');
+        
+            //입력문 prompt에서 받으면 숫자여도 문자로 인식 됨
+           let name = prompt('이름을 입력하세요','스누피');
+           console.log(name);
+           let chk = confirm('아무개 맞나요?');
+           console.log(chk);
+           console.log('내 이름은 ' + name + ' 입니다');
+           
+            //백쿼트(`) 사용할때는 변수만 ${} 표시해주기
+           console.log(`내 이름은 ${name} 입니다`);
+
+            
+
+
+    </script>
+</body>
+</html>

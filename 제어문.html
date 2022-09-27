@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문</title>
+</head>
+<body>
+    <script>
+        // 3의 배수
+        // let num = prompt('수 입력');
+        // if(num % 3 === 0){
+        //     alert(num + '은 3의 배수입니다.');
+        // } 
+        // alert('end');
+
+        // 성적 처리 (prompt에서 가져오면 문자이기때문에 숫자는 앞에 Number 꼭 써주기)
+        let guk = Number(prompt('국어 점수를 입력하시오.'));
+        let eng = Number(prompt('영어 점수를 입력하시오.'));
+        let mat = Number(prompt('수학 점수를 입력하시오.'));
+        let avg = (guk + eng + mat)/3;
+        
+        if(avg >= 90){
+            alert(avg + '는 수 입니다.');
+        }
+        else if(avg >= 80){
+            alert(avg + '는 우 입니다.');
+        }
+        else if(avg >= 70){
+            alert(avg + '는 미 입니다.');
+        }
+        else if(avg >= 60){
+            alert(avg + '는 양 입니다.');
+        }
+        else{
+            alert(avg + '는 가 입니다.');
+        }
+        alert('end');
+        
+        //삼항 연산자
+        let num = 57;
+        (num % 2 != 0) ? alert('홀수') : alert('짝수')
+        
+        
+
+    </script>
+</body>
+</html>

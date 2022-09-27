@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적</title>
+</head>
+<body>
+    <script>
+        //문제풀이
+
+        //1.
+        //성적 처리 생성자 함수(생성자함수 이름은 앞글자 대문자로 적기)
+        //함수니까 먼저 function쓰고 함수 이름 Student써주고 밑에 나열할때 this 꼭 붙이기
+        //(학생 객체만들고 배열에 넣기) this는 만들어질 객체를 뜻함
+        function Student(name, kor, eng, math, art){
+            this.name = name,
+            this.kor = kor,
+            this.eng = eng,
+            this.math = math,
+            this.art = art
+        };
+
+        //총점, 평균, 결과출력 메소드
+        Student.prototype.getSum = function(){
+            return this.kor + this.eng + this.math + this.art;
+        }
+        Student.prototype.getAvg = function(){
+            return (this.kor + this.eng + this.math + this.art) / 4;
+            //or return this.getSum()/4;
+        }
+        Student.prototype.toResult = function(){
+            return this.name + '\t' + this.getSum() + '\t\t' + this.getAvg();
+        }
+
+        //학생 성적 배열 데이터
+        //생성자함수 객체만들기 (5명 다 push)
+        let students = [];
+        students.push(new Student('홍길동',96,98,92,98));
+        students.push(new Student('성춘향',88,74,78,92));
+        students.push(new Student('이몽룡',69,89,92,78));
+        students.push(new Student('임영웅',97,95,89,98));
+        students.push(new Student('성유리',66,80,92,94));
+        
+        //배열 순회 성적 출력
+        //출력 형태와 같이 출력하기 (반복문 for in)
+        console.log(`이름 \t 총점 \t 평균 ` );
+        console.log('=====================')
+        
+        for (let i in students){
+            console.log(students[i].toResult());
+        }
+        console.log('=====================')
+
+
+        //2. 0부터 시작해서 0~4번까지 다 더하게 하거나 reduce배열 메소드
+        // 
+        let number = [2, 4, 6, 8, 10];
+        console.log(number);
+
+        let last = 0;
+        for (let i in number){
+            last += number[i];
+        }
+        number.push(last);
+        console.log(number);
+
+        //2-2 (reduce사용해서 2번 문제 다시 풀기)
+        let num = [2, 4, 6, 8, 10];
+        let sum = num.reduce(function(pre,curr){
+            return pre + curr;
+        });
+        num.push(sum);
+        console.log(num);
+
+        //2-3 화살표 함수 써서 2번 문제 다시 풀기
+        let num2 = [2, 4, 6, 8, 10];
+        let sum2 = num2.reduce((pre,curr) => pre + curr);
+        
+        num2.push(sum2);
+        console.log(num2);
+        
+
+
+
+    </script>
+</body>
+</html>

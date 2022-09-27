@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장객체</title>
+</head>
+<body>
+    <script>
+        // String : 문자열 객체 (pdf 5.내장객체 - 11p.)
+        let str = ' 1A34b 7c9z ';
+        console.log(str.charAt(8));
+        console.log(str.charCodeAt(2));
+        console.log(String.fromCharCode(65));
+        console.log(str.concat(' XYZ'));
+        console.log(str.indexOf('b'));
+        console.log(str.match('b'));
+        console.log(str.replace('4b','b5'));
+        console.log(str.search('y'));
+        console.log(str.slice(3,7));
+        console.log(str.split(''));
+        console.log(str.substr(3,7));
+        console.log(str.substring(3,7));
+        console.log(str.toLowerCase());
+        console.log(str.toUpperCase());
+        console.log(str.trim());
+
+        //Date 객체 (날짜는 무조건 let date = new Date();) -> 현재 날짜
+        //넣어줄땐 set. 가져올땐 get.
+        //날짜는 따옴표로 꼭 묶어주기.
+        let now = new Date();
+        let xmas = new Date('2022.12.25');
+        let remain = Math.floor((xmas-now)/(1000*60*60*24));
+        console.log(`xmas까지 ${remain}일 남았습니다.`);
+        
+        //+D day 계산
+        let now1 = new Date();
+        let days = new Date('2022.9.2');
+        let remains = Math.floor((now1-days)/(1000*60*60*24));
+        console.log(`수업 시작한지 ${remains}일 되었습니다.`);
+
+        //Math 객체 (ceil : 올림 / floor: 내림 / roung : 반올림)
+
+        //로또 번호 : 숫자 1-45까지, 5줄, 1줄에 6개의 수
+        let lotto = '';
+        for (let i=0; i<5; i++){
+            lotto = '';
+            for (let j=0; j<6; j++){
+                lotto += Math.floor((Math.random()*45 + 1))+ ' ';
+            }
+            console.log(lotto);
+        }
+        
+        
+        
+
+
+
+    </script>
+</body>
+</html>

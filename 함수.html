@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        function pyta(width, height){
+            function square(x){
+                return x*x;
+            }
+            return Math.sqrt(square(width)+square(height));
+        }
+        let result = pyta(10,20);
+        console.log(result);
+        
+        //더하기 함수
+        function add(a,b){
+            hap = a+b;
+            return hap;
+        }
+        let hap1 = add(9,7);
+        console.log(hap1);
+
+        //곱하기 함수
+        let mult = function(a,b){
+            return a*b;
+        }
+        console.log(mult(5,9));
+
+        //콜백 함수
+        function callTenTimes(callback){
+            for (let i=0; i<10; i++){
+                callback();
+            }
+        }
+        let callback = function(){
+            console.log('함수호출');
+        }
+        callTenTimes(callback);
+
+        //클로저 (리턴된 함수만 사용할 수 있음.)
+        function test(name){
+            let output = 'hello' + name;
+            return function(){
+                console.log(output);
+            };
+        }
+        test(' javascript')();
+
+        //펼침연산자 (변수명 앞에 ...표시 / 맨 마지막에 위치)
+
+        
+
+
+
+    </script>
+</body>
+</html>

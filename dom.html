@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        #base{
+            position: relative;
+        }
+        #open{
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+        }
+        #desc{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading" onclick="alert('click')">문서 객체 속성 변경</h1>
+    <div id="base">
+        <img src="img/coffee-pink.jpg" id="cup" width="200" height="200"
+        onmouseover="disappear()" onmouseout="change()">
+        <button id="open" onclick="show()">상세보기</button>
+    </div>
+    <div id="desc">
+        <h3>커피</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis esse dolores, 
+            dolorum pariatur dolore, dicta maiores tempore, cum a tempora voluptate. 
+            Magni quia exercitationem accusamus! Ipsa, deserunt. Molestiae, culpa odit.</p>
+        <button id="close" onclick="hide()">상세보기 닫기</button>
+    </div>
+    <script>
+        // getElementById로 하면 #안씀 / querySelector로 쓰면 #써야함
+        let header = document.getElementById('heading');
+        header.innerHTML = '이미지 변경';
+        header.style.border = '2px solid red'; 
+        header.style.backgroundColor = 'pink';
+        header.onclick = function(){
+            alert('click!');
+        }
+        
+        //지울때는 parentNode로 들어가서 삭제해야함.
+        let attr = document.querySelector('#cup');
+        // attr.setAttribute('src', 'img/coffee.jpg');
+        // attr.parentNode.removeChild(cup);
+
+        function show(){
+            document.querySelector('#desc').style.display = 'block';
+            document.querySelector('#open').style.display = 'none';
+        }
+        function hide(){
+            document.querySelector('#desc').style.display = 'none';
+            document.querySelector('#open').style.display = 'block';
+        }
+       
+        attr.onmouseover = function(){
+            attr.setAttribute('src', 'img/coffee.jpg');
+        } 
+    
+        attr.onmouseout = function(){
+            attr.setAttribute('src', 'img/coffee-pink.jpg');
+        }
+        
+        
+        //function change(){
+        //    attr.setAttribute('src', 'img/coffee-pink.jpg');
+        //}
+       
+    </script>
+</body>
+</html>
